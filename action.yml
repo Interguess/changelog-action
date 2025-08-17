@@ -1,0 +1,33 @@
+name: Changelog Action
+description: 'This GitHub Action generates a changelog of all commits between the baseTag and the headTag and also generates a semantic version upgrade type such as major, minor, or patch.'
+author: 'Interguess.com'
+inputs:
+  token:
+    description: 'GitHub Token'
+    required: true
+  baseTag:
+    description: 'Base (start) tag'
+    required: true
+  headTag:
+    description: 'Head (end) tag'
+    required: true
+  overrides:
+    description: 'Commit message overrides as JSON, e.g. {"Original":"Override"}'
+    required: false
+    default: '{}'
+outputs:
+  baseTag:
+    description: 'The base (start) tag for the changelog.'
+  headTag:
+    description: 'The head (end) tag for the changelog.'
+  log:
+    description: 'All conventional commit messages as plain text, newline separated.'
+  markdownLog:
+    description: 'Categorized changelog in markdown.'
+  semVerChange:
+    description: 'Calculated semver change: MAJOR, MINOR, PATCH'
+  issues:
+    description: 'String array of commit messages that do not conform to conventional commits.'
+runs:
+  using: 'node20'
+  main: 'dist/index.js'

@@ -1,0 +1,38 @@
+{
+  "name": "changelog-action",
+  "version": "1.0.0",
+  "private": true,
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc && ncc build dist-ts/index.js -o dist",
+    "prebuild": "rimraf dist dist-ts && tsc -p tsconfig.json --outDir dist-ts"
+  },
+  "dependencies": {
+    "@actions/core": "^1.11.1",
+    "@actions/exec": "^1.1.1",
+    "@actions/github": "^6.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.10",
+    "@vercel/ncc": "^0.38.3",
+    "eslint": "^9.9.0",
+    "prettier": "^3.3.3",
+    "rimraf": "^6.0.1",
+    "ts-node": "^10.9.2",
+    "tslib": "^2.6.3",
+    "typescript": "^5.9.2"
+  },
+  "description": "This GitHub Action generates a changelog of all commits between the baseTag and the headTag and also generates a semantic version upgrade type such as major, minor, or patch.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Interguess/changelog-action.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Interguess/changelog-action/issues"
+  },
+  "homepage": "https://github.com/Interguess/changelog-action#readme"
+}
